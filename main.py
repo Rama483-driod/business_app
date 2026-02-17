@@ -78,6 +78,3 @@ def delete_debt(debt_id):
     return redirect(url_for("home"))
 
 # --- Run server ---
-if __name__ == "__main__":
-    port = int(os.environ.get("PORT",10000))
-    app.run(host="0.0.0.0", port=port)
