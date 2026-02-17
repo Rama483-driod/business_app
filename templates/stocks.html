@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stocks</title>
+</head>
+<body>
+    <h2>Stocks Page</h2>
+
+    <form action="/stocks" method="POST">
+        <input type="text" name="item" placeholder="Item Name" required>
+        <input type="number" name="quantity" placeholder="Quantity" required>
+        <input type="date" name="date" required>
+        <button type="submit">Add Stock</button>
+    </form>
+
+    <h3>All Stocks</h3>
+    <ul>
+        {% for stock in stocks %}
+            <li>{{ stock.date }} - {{ stock.item }}: {{ stock.quantity }}</li>
+        {% else %}
+            <li>No stocks yet.</li>
+        {% endfor %}
+    </ul>
+
+    <a href="/">Back Home</a>
+</body>
+</html>
