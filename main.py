@@ -6,21 +6,7 @@ app = Flask(__name__)
 # --- Home route ---
 @app.route("/", methods=["GET"])
 def home():
-    conn = sqlite3.connect("business.db")
-    conn.row_factory = sqlite3.Row  # ← This makes fetch results accessible by column name
-    c = conn.cursor()
-
-    # Get all stocks
-    c.execute("SELECT * FROM stocks ORDER BY date DESC")
-    stocks_list = c.fetchall()
-
-    # Get all debts
-    c.execute("SELECT * FROM debts ORDER BY date DESC")
-    debts_list = c.fetchall()
-
-    conn.close()
-    return render_template("home.html", stocks=stocks_list, debts=debts_list)
-
+    return "App running"
 # --- Add stock ---
 @app.route("/stocks", methods=["POST"])
 def add_stock():
